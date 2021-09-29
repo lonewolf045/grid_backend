@@ -81,8 +81,6 @@ WSGI_APPLICATION = 'GridRESTApi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-from boto.s3.connection import S3Connection
-s3 = S3Connection(os.environ['MONGODB_URI'])
 
 DATABASES = {
     'default': {
