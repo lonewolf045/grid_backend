@@ -5,9 +5,11 @@ import tempfile
 import tensorflow as tf
 import os
 
+dir = os.path.dirname(os.path.abspath(__file__))
+
 def SmartBagRecommendations(user_number):
   with tempfile.TemporaryDirectory() as tmp:
-    path = os.getcwd()+'/Flipkart Grid/TFRS_model'
+    path = dir+'/Flipkart Grid/TFRS_model'
 
     # Load it back; can also be done in TensorFlow Serving.
     loaded = tf.saved_model.load(path)
@@ -16,12 +18,12 @@ def SmartBagRecommendations(user_number):
     scores, titles = loaded([user_number])
     
     # Loading the orders data frame
-    ords = pd.read_csv(os.getcwd()+'/Flipkart Grid/orders.csv').drop(columns = ['Unnamed: 0'])
+    ords = pd.read_csv(dir+'/Flipkart Grid/orders.csv').drop(columns = ['Unnamed: 0'])
     ords['User'] = ords['User'].astype(str)
     ords['Item ID'] = ords['Item ID'].astype(str)
 
     # Loading the products data frame
-    products = pd.read_csv(os.getcwd()+'/Flipkart Grid/products.csv').drop(columns = ['Unnamed: 0']) 
+    products = pd.read_csv(dir+'/Flipkart Grid/products.csv').drop(columns = ['Unnamed: 0']) 
     products['Item ID'] = products['Item ID'].astype(str)
 
     rec_ids = []
@@ -62,12 +64,12 @@ def SmartBagRecommendations(user_number):
 
 def FrontPage():
   # Loading the orders data frame
-  ords = pd.read_csv(os.getcwd()+'/Flipkart Grid/orders.csv').drop(columns = ['Unnamed: 0'])
+  ords = pd.read_csv(dir+'/Flipkart Grid/orders.csv').drop(columns = ['Unnamed: 0'])
   ords['User'] = ords['User'].astype(str)
   ords['Item ID'] = ords['Item ID'].astype(str)
 
   # Loading the products data frame
-  products = pd.read_csv(os.getcwd()+'/Flipkart Grid/products.csv').drop(columns = ['Unnamed: 0']) 
+  products = pd.read_csv(dir+'/Flipkart Grid/products.csv').drop(columns = ['Unnamed: 0']) 
   products['Item ID'] = products['Item ID'].astype(str)
 
   display = {}
