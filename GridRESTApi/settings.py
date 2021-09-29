@@ -81,13 +81,15 @@ WSGI_APPLICATION = 'GridRESTApi.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+from boto.s3.connection import S3Connection
+s3 = S3Connection(os.environ['MONGODB_URI'])
 
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'grid_db',
         'CLIENT': {
-            'host': 'mongodb://kush:Hellolife1234@grid-data.h6mlz.mongodb.net/grid_db?retryWrites=true&w=majority',
+            'host': 'mongodb+srv://kush:Hellolife1234@grid-data.h6mlz.mongodb.net/grid_db?retryWrites=true&w=majority',
             'username': 'kush',
             'password': 'Hellolife1234'
         }
