@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'grid_db',
         'CLIENT': {
-            'host': 'mongodb+srv://kush:Hellolife1234@grid-data.h6mlz.mongodb.net/grid_db?retryWrites=true&w=majority',
+            'host': 'mongodb://kush:Hellolife1234@grid-data.h6mlz.mongodb.net/grid_db?retryWrites=true&w=majority',
             'username': 'kush',
             'password': 'Hellolife1234'
         }
