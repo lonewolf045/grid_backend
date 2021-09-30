@@ -55,6 +55,7 @@ def products_all(request):
 def smartbag_products(request,id):
     if request.method == 'GET':
         bag = SmartBagRecommendations(str(id))
+        return JsonResponse(bag,safe=False)
         dicts = {}
         for val in bag:
             temp = Products.objects.filter(item_id__in = bag[val])
