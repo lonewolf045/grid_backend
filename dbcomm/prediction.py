@@ -35,7 +35,7 @@ def SmartBagRecommendations(user_number):
       # Initializing the dictionary of labeled predictions
 
       # Adding model's top 10 predictions to the 'top' list
-      recommendations['Top 10 Predicted:'] = rec_ids
+      recommendations['Top 10 Predicted'] = rec_ids
 
       # Adding the 2 most frequently ordered products
       user_data = ords[ords.User == user_number]
